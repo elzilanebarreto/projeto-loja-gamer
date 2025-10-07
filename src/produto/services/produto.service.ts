@@ -26,6 +26,9 @@ export class ProdutoService {
       where: {
         id,
       },
+      relations: {
+        categoria: true,
+      },
     });
 
     if (!produto)
@@ -38,6 +41,9 @@ export class ProdutoService {
     return await this.produtoRepository.find({
       where: {
         nome: ILike(`%${nome}%`),
+      },
+      relations: {
+        categoria: true,
       },
     });
   }
